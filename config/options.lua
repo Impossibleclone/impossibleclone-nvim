@@ -19,7 +19,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.showmode = false
-vim.opt.autochdir = true
+-- vim.opt.autochdir = true
 
 vim.opt.incsearch = true
 vim.opt.hlsearch = false
