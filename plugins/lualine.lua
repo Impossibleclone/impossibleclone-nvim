@@ -27,12 +27,12 @@ return {
                 lualine_z = {}
             },
             tabline = {
-                lualine_a = { { 'lsp_status', separator = { left = ' ⏽ ', right = '' }, component_separators = { right = '⏽', left = '' }, right_padding = 2 } },
+                lualine_a = { { 'lsp_status', separator = { left = ' ⏽ ', right = '◤' }, component_separators = { right = '⏽', left = '◥' }, right_padding = 2 } },
                 lualine_b = {},
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = {},
-                lualine_z = { { 'filesize', separator = { right = ' ⏽ ', left = '' }, left_padding = 2 } },
+                lualine_z = { { 'filesize', separator = { right = ' ⏽ ', left = '◥' }, left_padding = 2 } },
             },
             -- winbar = {
             --     lualine_a = {},
