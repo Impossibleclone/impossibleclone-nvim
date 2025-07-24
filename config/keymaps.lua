@@ -8,6 +8,7 @@ map("n", "<leader>q", "<cmd>q<CR>", opts)
 map("n", "<leader>e", ":Ex<CR>", opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
+map("n", "<leader>fo", ":Telescope oldfiles<CR>", { desc = "Old files" })
 
 map("n", "<A-h>", ":ToggleTerm direction=horizontal<CR>", opts)
 map("n", "<A-v>", ":ToggleTerm direction=vertical <CR>", opts)
@@ -23,6 +24,9 @@ map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 
 map("n", "<leader>tn", ":tabnew<CR>", opts)
 map("n", "<leader>tc", ":tabclose<CR>", opts)
