@@ -5,7 +5,17 @@ local opts = { noremap = true, silent = true }
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 map("n", "<leader>w", "<cmd>w<CR>", opts)
 map("n", "<leader>q", "<cmd>q<CR>", opts)
-map("n", "<leader>e", ":Ex<CR>", opts)
+-- map("n", "<leader>e", ":Sex!<CR>", opts)
+local function toggle_netrw()
+    -- Check if current buffer is Netrw
+    if vim.bo.filetype == "netrw" then
+        vim.cmd("bd")   -- Close Netrw buffer
+    else
+        vim.cmd("Sex!") -- Open Netrw in vertical split
+    end
+end
+-- Map <leader>e to toggle Netrw
+map("n", "<leader>e", toggle_netrw, opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
 map("n", "<leader>fo", ":Telescope oldfiles<CR>", { desc = "Old files" })
