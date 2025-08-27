@@ -15,19 +15,35 @@ return {
                 "lua_ls", "ts_ls", "ast_grep", "pyright", "rust_analyzer", "gopls", "clangd", "jsonls", "html", "cssls",
                 "bashls",
             },
-            automatic_installation = true,
+            handlers = {
+                function(server_name)
+                    -- Skip gopls here to avoid duplicate setup
+                    if server_name == "gopls" then
+                        return
+                    end
+                    lspconfig[server_name].setup({
+                        on_attach = on_attach,
+                    })
+                end,
+                -- Explicitly configure gopls
+                gopls = function()
+                    lspconfig.gopls.setup({
+                        on_attach = on_attach,
+                        settings = {
+                            gopls = {
+                                analyses = {
+                                    unusedparams = true,
+                                },
+                                staticcheck = true,
+                            },
+                        },
+                    })
+                end,
+            },
         })
 
         local on_attach = function(client, bufnr)
             local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-            -- -- LSP keymaps
-            -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-            -- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-            -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-            -- vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-            -- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-            -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
             vim.keymap.set("n", "<leader>f", function()
                 vim.lsp.buf.format({ async = true })
             end, { desc = "Format current buffer", buffer = bufnr })
@@ -42,55 +58,5 @@ return {
                 })
             end
         end
-
-        lspconfig.lua_ls.setup({
-            on_attach = on_attach,
-            settings = {
-                Lua = {
-                    diagnostics = { globals = { "vim" } },
-                    workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-                },
-            },
-        })
-
-        lspconfig.ast_grep.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.ts_ls.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.pyright.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.rust_analyzer.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.gopls.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.clangd.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.jsonls.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.html.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.cssls.setup({
-            on_attach = on_attach,
-        })
-
-        lspconfig.bashls.setup({
-            on_attach = on_attach,
-        })
     end,
 }
