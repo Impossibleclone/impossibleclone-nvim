@@ -7,14 +7,15 @@ map("n", "<leader>w", "<cmd>w<CR>", opts)
 map("n", "<leader>q", "<cmd>q<CR>", opts)
 -- map("n", "<leader>e", ":Sex!<CR>", opts)
 local function toggle_netrw()
-    -- Check if current buffer is Netrw
-    if vim.bo.filetype == "netrw" then
-        vim.cmd("bd")   -- Close Netrw buffer
-    else
-        vim.cmd("Sex!") -- Open Netrw in vertical split
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype == "netrw" then
+      vim.api.nvim_buf_delete(buf, { force = true })
+      return
     end
+  end
+  vim.cmd("Sex!")  -- open if no netrw found
 end
--- Map <leader>e to toggle Netrw
+
 map("n", "<leader>e", toggle_netrw, opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
@@ -67,3 +68,4 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+
