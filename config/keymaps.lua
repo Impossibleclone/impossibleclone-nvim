@@ -5,6 +5,7 @@ local opts = { noremap = true, silent = true }
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 map("n", "<leader>w", "<cmd>w<CR>", opts)
 map("n", "<leader>q", "<cmd>q<CR>", opts)
+map("n", "<leader>Q", "<cmd>q!<CR>", opts)
 -- map("n", "<leader>e", ":Sex!<CR>", opts)
 local function toggle_netrw()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
