@@ -12,7 +12,7 @@ return {
         mason.setup()
         mason_lspconfig.setup({
             ensure_installed = {
-                "black", "ast_grep", "rust_analyzer", "gopls", "clangd", "bash-language-server"
+                "black", "ast_grep", "rust_analyzer", "gopls", "clangd", "bashls"
             },
             handlers = {
                 function(server_name)
