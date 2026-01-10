@@ -14,8 +14,35 @@ local function toggle_netrw()
       return
     end
   end
-  vim.cmd("Sex!")  -- open if no netrw found
+  vim.cmd("Vex!")  -- open if no netrw found
 end
+
+-- init.lua
+
+local function netrw_mapping()
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  local function bind(lhs, rhs, desc)
+    vim.keymap.set('n', lhs, rhs, { buffer = bufnr, remap = true, desc = desc })
+  end
+  bind('l', 'P<C-w>h')
+  bind('<C-l>', '<C-w>l')
+end
+
+-- Create the autocmd
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'netrw',
+  callback = netrw_mapping,
+})
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  callback = function()
+      if vim.api.nvim_list_bufs() == 1 and vim.bo.filetype == 'netrw' then
+          vim.cmd('q')
+      end
+  end,
+})
 
 map("n", "<leader>e", toggle_netrw, opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
