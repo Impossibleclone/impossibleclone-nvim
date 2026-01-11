@@ -18,7 +18,7 @@ return {
 
         dashboard.section.buttons.val = {
             dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-            dashboard.button("f", "  > Find file", ":cd $HOME/prgm/ | Telescope find_files<CR>"),
+            dashboard.button("ff", "  > Find file", ":Telescope find_files<CR>"),
             dashboard.button("fo", "  > Recent", ":Telescope oldfiles<CR>"),
             dashboard.button("c", "  > Config", ":cd $HOME/.config/nvim | Telescope find_files<CR>"),
             dashboard.button("q", "󰗼  > Quit NVIM", ":qa<CR>"),
