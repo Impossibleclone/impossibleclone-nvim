@@ -1,3 +1,4 @@
+vim.opt.fillchars:append { eob = " " }
 vim.opt.clipboard      = 'unnamedplus'
 vim.opt.completeopt    = { 'menu', 'menuone', 'noselect' }
 vim.opt.undofile       = true
