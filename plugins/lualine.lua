@@ -34,18 +34,18 @@ return {
                 lualine_a = { { 'lsp_status', separator = { left = ' ⏽ ', right = '◤' }, component_separators = { right = '⏽', left = '◥' }, right_padding = 2 } },
                 lualine_b = {},
                 lualine_c = {},
-                lualine_x = {},
+                lualine_x = {'tabs'},
                 lualine_y = {},
                 lualine_z = { { 'filesize', separator = { right = ' ⏽ ', left = '◥' }, left_padding = 2 } },
             },
-            winbar = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = {},
-                lualine_x = {},
-                lualine_y = {},
-                lualine_z = {}
-            },
+            -- winbar = {
+            --     lualine_a = {},
+            --     lualine_b = {},
+            --     lualine_c = {},
+            --     lualine_x = {},
+            --     lualine_y = {},
+            --     lualine_z = {}
+            -- },
             --
             -- inactive_winbar = {
             --     lualine_a = {},
