@@ -4,7 +4,7 @@ return {
     config = function()
         require("lualine").setup({
             options = {
-                disabled_filetypes = { "neo-tree" },
+                disabled_filetypes = { "neo-tree", "alpha" },
                 globalstatus = true,
                 icons_enabled = true,
                 theme = "catppuccin",
