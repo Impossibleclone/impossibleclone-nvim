@@ -4,9 +4,13 @@ return {
     config = function()
         require("lualine").setup({
             options = {
+                disabled_filetypes = { "neo-tree" },
+                globalstatus = true,
+                icons_enabled = true,
                 theme = "catppuccin",
                 section_separators = { left = '', right = '' },
                 component_separators = { left = '\\', right = '/' },
+                extensions = { 'neo-tree' },
 
                 { fmt = string.lower },
             },
@@ -34,14 +38,14 @@ return {
                 lualine_y = {},
                 lualine_z = { { 'filesize', separator = { right = ' ⏽ ', left = '◥' }, left_padding = 2 } },
             },
-            -- winbar = {
-            --     lualine_a = {},
-            --     lualine_b = {},
-            --     lualine_c = {},
-            --     lualine_x = {},
-            --     lualine_y = {},
-            --     lualine_z = { 'filetype' }
-            -- },
+            winbar = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = {},
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = {}
+            },
             --
             -- inactive_winbar = {
             --     lualine_a = {},
