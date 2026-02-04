@@ -27,7 +27,6 @@ return {
                     height = 0.80,
                     preview_cutoff = 120,
                 },
-                
                 mappings = {
                     i = {
                         ["<C-k>"] = actions.move_selection_previous,

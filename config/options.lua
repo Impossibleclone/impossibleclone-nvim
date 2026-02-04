@@ -15,6 +15,8 @@ vim.opt.shiftwidth     = 4
 vim.opt.expandtab      = true
 vim.opt.scrolloff      = 15
 
+-- vim.opt.list           = true
+-- vim.opt.listchars      = { tab = '| ', trail = '▸', extends = '❯', precedes = '❮' }
 vim.opt.number         = true
 vim.opt.relativenumber = true
 vim.opt.cursorline     = true
@@ -32,17 +34,17 @@ vim.opt.ignorecase     = true
 vim.opt.smartcase      = true
 
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = false,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = true,
-  float = {
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = ""
-  }
+    virtual_text = true,
+    signs = false,
+    underline = true,
+    update_in_insert = true,
+    severity_sort = true,
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = ""
+    }
 })
