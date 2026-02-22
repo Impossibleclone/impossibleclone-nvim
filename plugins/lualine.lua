@@ -10,10 +10,10 @@ return {
                 theme = "catppuccin",
                 section_separators = { left = '', right = '' },
                 component_separators = { left = '\\', right = '/' },
-                extensions = { 'neo-tree' },
 
                 { fmt = string.lower },
             },
+            extensions = { 'neo-tree' },
             sections = {
                 lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end, separator = { left = ' ⏽ ', right = '' }, component_separators = { right = '⏽', left = '' }, right_padding = 2 } },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
@@ -34,7 +34,7 @@ return {
                 lualine_a = { { 'lsp_status', separator = { left = ' ⏽ ', right = '◤' }, component_separators = { right = '⏽', left = '◥' }, right_padding = 2 } },
                 lualine_b = {},
                 lualine_c = {},
-                lualine_x = {'tabs'},
+                lualine_x = { 'tabs' },
                 lualine_y = {},
                 lualine_z = { { 'filesize', separator = { right = ' ⏽ ', left = '◥' }, left_padding = 2 } },
             },

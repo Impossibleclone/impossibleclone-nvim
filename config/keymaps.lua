@@ -8,44 +8,6 @@ map("n", "<leader>q", "<cmd>q<CR>", opts)
 map("n", "<leader>Q", "<cmd>q!<CR>", opts)
 
 map("n", "<leader>d", "<cmd>TransparentToggle<CR>", opts)
--- map("n", "<leader>e", ":Sex!<CR>", opts)
--- local function toggle_netrw()
---   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
---     if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype == "netrw" then
---       vim.api.nvim_buf_delete(buf, { force = true })
---       return
---     end
---   end
---   vim.cmd("Vex!")  -- open if no netrw found
--- end
-
--- init.lua
-
--- local function netrw_mapping()
---   local bufnr = vim.api.nvim_get_current_buf()
---
---   local function bind(lhs, rhs, desc)
---     vim.keymap.set('n', lhs, rhs, { buffer = bufnr, remap = true, desc = desc })
---   end
---   bind('<C-l>', '<C-w>l')
--- end
-
--- Create the autocmd
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'netrw',
---   callback = netrw_mapping,
--- })
---
--- vim.api.nvim_create_autocmd('BufEnter', {
---   pattern = '*',
---   callback = function()
---       if vim.api.nvim_list_bufs() == 1 and vim.bo.filetype == 'netrw' then
---           vim.cmd('q')
---       end
---   end,
--- })
-
--- map("n", "<leader>e", toggle_netrw, opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
 map("n", "<leader>fo", ":Telescope oldfiles<CR>", { desc = "Old files" })
@@ -62,6 +24,8 @@ map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "j", "jzz")
+map("n", "k", "kzz")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("v", "J", ":m '>+1<CR>gv=gv")
