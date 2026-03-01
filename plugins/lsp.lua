@@ -38,7 +38,7 @@ return {
         mason.setup()
         mason_lspconfig.setup({
             ensure_installed = {
-                "ast_grep", "rust_analyzer", "gopls", "clangd", "bashls"
+                "ast_grep", "rust_analyzer", "gopls", "clangd", "bashls","pyright"
             },
             handlers = {
                 -- Default handler for standard servers
