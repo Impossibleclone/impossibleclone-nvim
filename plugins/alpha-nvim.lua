@@ -1,13 +1,11 @@
 return {
     "goolord/alpha-nvim",
-    -- dependencies = { 'echasnovski/mini.icons' },
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local dashboard = require("alpha.themes.dashboard")
         local alpha = require("alpha")
 
         dashboard.section.header.val = {
-            [[                                                                                                         ]],
             [[   _                               _ _     _           _                       _   _       _             ]],
             [[  (_)_ __ ___  _ __   ___  ___ ___(_) |__ | | ___  ___| | ___  _ __   ___     | \ | |_   _(_)_ __ ___    ]],
             [[  | | '_ ` _ \| '_ \ / _ \/ __/ __| | '_ \| |/ _ \/  _| |/ _ \| '_ \ / _ \____|  \| \ \ / / | '_ ` _ \   ]],
@@ -24,11 +22,23 @@ return {
             dashboard.button("q", "󰗼  > Quit NVIM", ":qa<CR>"),
         }
 
+        local version = vim.version()
+        dashboard.section.footer.val = "Neovim v" .. version.major .. "." .. version.minor .. "." .. version.patch
+
+        dashboard.config.layout = {
+            { type = "padding", val = 12 },
+            dashboard.section.header,
+            { type = "padding", val = 2 },
+            dashboard.section.buttons,
+            { type = "padding", val = 2 },
+            dashboard.section.footer,
+        }
+
         alpha.setup(dashboard.opts)
 
-        -- Disable folding on alpha buffer
-        vim.cmd([[
-        autocmd FileType alpha setlocal nofoldenable
-    ]])
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "alpha",
+            command = "setlocal nofoldenable",
+        })
     end,
 }
