@@ -1,6 +1,7 @@
 vim.opt.fillchars:append { eob = " " }
 vim.opt.clipboard      = 'unnamedplus'
 vim.opt.completeopt    = { 'menu', 'menuone', 'noselect' }
+vim.opt.ruler          = false
 vim.opt.undofile       = true
 -- vim.opt.guicursor = ""
 vim.opt.cursorline     = true
