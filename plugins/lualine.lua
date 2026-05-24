@@ -19,18 +19,18 @@ return {
                     disabled_filetypes = { "neo-tree", "alpha" },
                     globalstatus = true,
                     icons_enabled = true,
-                    section_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
                     component_separators = { left = '', right = '' },
 
                 },
                 extensions = { 'neo-tree' },
                 sections = {
-                    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end, right_padding = 0 } },
+                    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end, separator = { left = '', right = '' }, component_separators = { left = '' }, right_padding = 2 } },
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
                     lualine_c = { 'filename' },
                     lualine_x = {},
                     lualine_y = { 'progress' },
-                    lualine_z = { { 'location', left_padding = 0 } },
+                    lualine_z = { { 'location', separator = { right = '', left = '' }, left_padding = 2 } },
                 },
                 inactive_sections = {
                     lualine_a = {},
@@ -56,6 +56,5 @@ return {
                 end
             end))
         end
-
     end,
 }
