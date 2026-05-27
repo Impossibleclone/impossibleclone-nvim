@@ -16,29 +16,26 @@ return {
             require("lualine").setup({
                 options = {
                     theme = custom_theme,
-                    disabled_filetypes = { "neo-tree", "alpha" },
+                    ignore_focus = {"neo-tree", "alpha", "undotree"},
                     globalstatus = true,
                     icons_enabled = true,
                     section_separators = { left = '', right = '' },
                     component_separators = { left = '', right = '' },
 
                 },
-                extensions = { 'neo-tree' },
                 sections = {
-                    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end, separator = { left = '', right = '' }, component_separators = { left = '' }, right_padding = 2 } },
+                    lualine_a = { {
+                        'mode',
+                        fmt = function(str) return str:sub(1, 1) end,
+                        separator = { left = '', right = '' },
+                        component_separators = { left = '' },
+                        right_padding = 2
+                    } },
                     lualine_b = { 'branch', 'diff', 'diagnostics' },
                     lualine_c = { 'filename' },
-                    lualine_x = {},
+                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
                     lualine_y = { 'progress' },
                     lualine_z = { { 'location', separator = { right = '', left = '' }, left_padding = 2 } },
-                },
-                inactive_sections = {
-                    lualine_a = {},
-                    lualine_b = {},
-                    lualine_c = {},
-                    lualine_x = {},
-                    lualine_y = {},
-                    lualine_z = {}
                 },
             })
         end

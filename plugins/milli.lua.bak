@@ -1,0 +1,8 @@
+return { "amansingh-afk/milli.nvim", lazy = false,
+    -- config = function()
+    --     require("milli").alpha({
+    --         splash = "blackhole",
+    --         loop = true
+    --     })
+    -- end,
+}
