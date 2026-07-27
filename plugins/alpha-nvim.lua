@@ -8,7 +8,7 @@ return {
         local dashboard = require("alpha.themes.dashboard")
         local alpha = require("alpha")
 
-        local my_splash = "cactus"
+        local my_splash = "frames"
 
         local splash = require("milli").load({ splash = my_splash })
         dashboard.section.header.val = splash.frames[1]

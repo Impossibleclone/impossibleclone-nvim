@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
 map("n", "<leader>w", "<cmd>w<CR>", opts)  -- Save
 map("n", "<leader>q", "<cmd>q<CR>", opts)  -- Quit
-map("n", "<leader>Q", "<cmd>q!<CR>", opts) -- force quit
+map("n", "<leader>fq", "<cmd>q!<CR>", opts) -- force quit
 
 map("n", "<leader>d", "<cmd>TransparentToggle<CR>", opts) -- Transparent toggle
 map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" }) -- Find files
@@ -24,8 +24,8 @@ map("n", "<C-Up>", ":resize -2<CR>", opts) -- Resize window up
 map("n", "<C-Down>", ":resize +2<CR>", opts) -- Resize window down
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts) -- Resize window left
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts) -- Resize window right
-map("n", "<C-d>", "<C-d>zz") -- Scroll half a page down
-map("n", "<C-u>", "<C-u>zz") -- Scroll half a page up
+-- map("n", "<C-d>", "<C-d>zz") -- Scroll half a page down
+-- map("n", "<C-u>", "<C-u>zz") -- Scroll half a page up
 map("v", "J", ":m '>+1<CR>gv=gv") -- Move down
 map("v", "K", ":m '<-2<CR>gv=gv") -- Move up
 
