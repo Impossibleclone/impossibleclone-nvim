@@ -15,8 +15,6 @@ return {
 
         -- 2. DEFINE ON_ATTACH (Must be up here, before you use it)
         local on_attach = function(client, bufnr)
-            local bufopts = { noremap = true, silent = true, buffer = bufnr }
-            
             vim.keymap.set("n", "<leader>f", function()
                 vim.lsp.buf.format({ async = true })
             end, { desc = "Format current buffer", buffer = bufnr })
@@ -38,13 +36,13 @@ return {
         mason.setup()
         mason_lspconfig.setup({
             ensure_installed = {
-                "ast_grep", "rust_analyzer", "gopls", "clangd", "bashls","pyright"
+                "ast-grep", "rust-analyzer", "gopls", "clangd", "bashls", "pyright"
             },
             handlers = {
                 -- Default handler for standard servers
                 function(server_name)
                     if server_name == "gopls" then return end -- Skip gopls
-                    
+
                     lspconfig[server_name].setup({
                         on_attach = on_attach,
                         capabilities = capabilities, -- Pass capabilities here
