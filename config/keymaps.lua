@@ -39,7 +39,7 @@ map("n", "gd", vim.lsp.buf.definition, opts)                                    
 map("n", "K", vim.lsp.buf.hover, opts)                                          -- Hover
 map("n", "gi", vim.lsp.buf.implementation, opts)                                -- Go to implementation
 map("n", "<leader>rn", vim.lsp.buf.rename, opts)                                -- Rename
-map("n", "<leader>ca", vim.lsp.buf.code_action, opts)                           -- Code action
+-- map("n", "<leader>ca", vim.lsp.buf.code_action, opts)                           -- Code action
 map("n", "gr", vim.lsp.buf.references, opts)                                    -- References
 map("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts) -- Format
 function _G.set_terminal_keymaps()
